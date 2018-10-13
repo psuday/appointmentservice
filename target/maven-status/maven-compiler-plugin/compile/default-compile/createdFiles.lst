@@ -1,9 +1,0 @@
-com\uday\appointmentservice\config\ServiceConfig.class
-com\uday\appointmentservice\repository\InMemAppointmentRepo.class
-com\uday\appointmentservice\controllers\AppointmentController.class
-com\uday\appointmentservice\model\Appointment.class
-com\uday\appointmentservice\model\Entity.class
-com\uday\appointmentservice\repository\AppointmentRepository.class
-com\uday\appointmentservice\Application.class
-com\uday\appointmentservice\bean\ServiceProp.class
-com\uday\appointmentservice\service\AppointmentService.class
