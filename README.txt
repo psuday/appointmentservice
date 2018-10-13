@@ -35,5 +35,13 @@ mvn spring-boot:run
 This will start up the appointmentservice at localhost:8080 and it 
 will grab the configuration data from localhost:8888
 
+During development if the configuration is updated and you want to grab the latest
+then - the microservice exposes an actuator end point:
 
+http://localhost:8080/actuator/refresh to which we need to a POST
 
+something like:
+
+curl -d{} -H"Content-Type: application/json" http://localhost:8080/actuator/refresh
+
+and then if you run the above end points then updated configuration properties will be grabbed.
