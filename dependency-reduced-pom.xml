@@ -1,34 +1,17 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <parent>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <groupId>org.springframework.boot</groupId>
+    <version>2.0.1.RELEASE</version>
+    <relativePath>../pom.xml/pom.xml</relativePath>
+  </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.uday.appointmentservce</groupId>
   <artifactId>appointmentservice</artifactId>
-  <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
   <name>appointmentservice</name>
+  <version>1.0-SNAPSHOT</version>
   <url>http://maven.apache.org</url>
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-  </properties>
-
-  <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.0.1.RELEASE</version>
-  </parent>
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-	<groupId>org.springframework.cloud</groupId>
-	<artifactId>spring-cloud-dependencies</artifactId>
-	<version>Finchley.SR1</version>
-	<type>pom</type>
-	<scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
   <build>
     <plugins>
       <plugin>
@@ -42,17 +25,17 @@
             </goals>
             <configuration>
               <transformers>
-                <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                <transformer>
                   <resource>META-INF/spring.handlers</resource>
                 </transformer>
-                <transformer implementation="org.springframework.boot.maven.PropertiesMergingResourceTransformer">
+                <transformer>
                   <resource>META-INF/spring.factories</resource>
                 </transformer>
-                <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                <transformer>
                   <resource>META-INF/spring.schemas</resource>
                 </transformer>
-                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
-                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                <transformer />
+                <transformer>
                   <mainClass>com.uday.appointmentservice.Application</mainClass>
                 </transformer>
               </transformers>
@@ -74,27 +57,31 @@
       </plugin>
     </plugins>
   </build>
-
-
-
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
+      <version>2.0.1.RELEASE</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
+      <version>2.0.1.RELEASE</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-config</artifactId>
+      <version>2.0.1.RELEASE</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+      <version>2.0.1.RELEASE</version>
+      <scope>provided</scope>
     </dependency>
-
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -102,6 +89,21 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
-
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>Finchley.SR1</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
 </project>
+
